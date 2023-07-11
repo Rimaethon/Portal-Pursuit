@@ -1,30 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 public class PlayerInteract : MonoBehaviour
 {
-    private List<Transform> npclist;
     public bool ePressed;
+    private List<Transform> npclist;
 
     private void Update()
     {
-        
-
-
     }
+
     public void InteractMethod()
     {
         if (ePressed)
         {
-            float interactRange = 2f;
-            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
-            foreach (Collider collider in colliderArray)
-            {
-
-                Debug.Log(collider);
-            }
-
+            var interactRange = 2f;
+            var colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            foreach (var collider in colliderArray) Debug.Log(collider);
         }
     }
 }

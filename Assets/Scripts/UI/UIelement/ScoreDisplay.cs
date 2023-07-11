@@ -1,40 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This class handles displayig the score
+///     This class handles displayig the score
 /// </summary>
 public class ScoreDisplay : UIelement
 {
-    [Header("References")]
-    [Tooltip("The text to use when displaying the score")]
-    public Text displayText = null;
+    [Header("References")] [Tooltip("The text to use when displaying the score")]
+    public Text displayText;
 
     /// <summary>
-    /// Description:
-    /// Displays the score onto the display text
-    /// Input:
-    /// none
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Displays the score onto the display text
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     public void DisplayScore()
     {
-        if (displayText != null)
-        {
-            displayText.text = "Score: " + GameManager.score.ToString();
-        }
+        if (displayText != null) displayText.text = "Score: " + GameManager.score;
     }
 
     /// <summary>
-    /// Description:
-    /// Updates this UI based on this class
-    /// Input:
-    /// none
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Updates this UI based on this class
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     public override void UpdateUI()
     {

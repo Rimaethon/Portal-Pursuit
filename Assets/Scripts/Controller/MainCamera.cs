@@ -1,26 +1,19 @@
 ﻿using UnityEngine;
 
-public class MainCamera : MonoBehaviour {
+public class MainCamera : MonoBehaviour
+{
+    private Portal[] portals;
 
-    Portal[] portals;
-
-    void Awake () {
-        portals = FindObjectsOfType<Portal> ();
+    private void Awake()
+    {
+        portals = FindObjectsOfType<Portal>();
     }
 
-    void OnPreCull () {
+    private void OnPreCull()
+    {
+        for (var i = 0; i < portals.Length; i++) portals[i].PrePortalRender();
+        for (var i = 0; i < portals.Length; i++) portals[i].Render();
 
-        for (int i = 0; i < portals.Length; i++) {
-            portals[i].PrePortalRender ();
-        }
-        for (int i = 0; i < portals.Length; i++) {
-            portals[i].Render ();
-        }
-
-        for (int i = 0; i < portals.Length; i++) {
-            portals[i].PostPortalRender ();
-        }
-
+        for (var i = 0; i < portals.Length; i++) portals[i].PostPortalRender();
     }
-
 }

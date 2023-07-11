@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +10,9 @@ public class RadioInteractor : MonoBehaviour
     public Text astronoutNameRadio;
     public string whatIsMyNameRadio;
     public GameObject RadioBox;
+
     public bool radioHit;
+
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
@@ -19,15 +20,19 @@ public class RadioInteractor : MonoBehaviour
         {
             StartCoroutine(DiolougeRadio());
             radioHit = false;
-        }else
-        { radioHit = true;}
+        }
+        else
+        {
+            radioHit = true;
+        }
     }
+
     public IEnumerator DiolougeRadio()
     {
         astronoutNameRadio.text = whatIsMyNameRadio;
         textRadio.text = myFirstSentenceRadio;
         RadioBox.SetActive(true);
-        
+
 
         //Print the time of when the function is first called.
 

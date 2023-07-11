@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// A class to make projectiles move
+///     A class to make projectiles move
 /// </summary>
 public class Projectile : MonoBehaviour
 {
@@ -11,12 +9,12 @@ public class Projectile : MonoBehaviour
     [Tooltip("The distance this projectile will move each second.")]
     public float projectileSpeed = 3.0f;
 
-    
+
     /// <summary>
-    /// Description:
-    /// Every frame, move the projectile in the direction it is heading
-    /// Inputs: N/A
-    /// Returns: N/A
+    ///     Description:
+    ///     Every frame, move the projectile in the direction it is heading
+    ///     Inputs: N/A
+    ///     Returns: N/A
     /// </summary>
     protected virtual void Update()
     {

@@ -1,12 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NpcInteractable : MonoBehaviour
 {
-
     public Text text;
     public GameObject diolougeBox;
     public string myFirstSentence;
@@ -14,26 +11,23 @@ public class NpcInteractable : MonoBehaviour
     public Text astronoutName;
     public string whatIsMyName;
     public GameObject interactBox;
-   
-    public void InteractBox()
-    {
-        
-        
-        
-        
 
-    }
     private void Start()
     {
-        Quaternion quaternion = Quaternion.identity;
+        var quaternion = Quaternion.identity;
     }
+
+    public void InteractBox()
+    {
+    }
+
     public IEnumerator Diolouge()
     {
-        astronoutName.text=whatIsMyName;
+        astronoutName.text = whatIsMyName;
         text.text = myFirstSentence;
         diolougeBox.SetActive(true);
         transform.Rotate(0, 270, 0);
-       
+
         //Print the time of when the function is first called.
 
         //yield on a new YieldInstruction that waits for 5 seconds.
@@ -45,6 +39,7 @@ public class NpcInteractable : MonoBehaviour
         //After we have waited 5 seconds print the time agaiN
         yield return null;
     }
+
     public IEnumerator InteractInfo()
     {
         if (!diolougeBox.activeSelf)
@@ -52,13 +47,12 @@ public class NpcInteractable : MonoBehaviour
             interactBox.SetActive(true);
             yield return new WaitForSeconds(1f);
             interactBox.SetActive(false);
-
-
         }
         else
         {
-            interactBox.SetActive(false);   
+            interactBox.SetActive(false);
         }
+
         yield return null;
     }
 
@@ -67,6 +61,4 @@ public class NpcInteractable : MonoBehaviour
         diolougeBox.SetActive(false);
         yield return null;
     }
-
-
 }
