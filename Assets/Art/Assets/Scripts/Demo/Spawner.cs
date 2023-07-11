@@ -1,26 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Spawner : MonoBehaviour {
-
+public class Spawner : MonoBehaviour
+{
     public bool spawnAtStart;
     public GameObject prefab;
 
-    void Start () {
-        Debug.Log ("Press Space to spawn cubes");
-        if (spawnAtStart) {
-            Spawn ();
-        }
+    private void Start()
+    {
+        Debug.Log("Press Space to spawn cubes");
+        if (spawnAtStart) Spawn();
     }
 
-    void Update () {
-        if (Input.GetKeyDown (KeyCode.Space)) {
-            Spawn ();
-        }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) Spawn();
     }
 
-    void Spawn () {
-        Instantiate (prefab, transform.position, transform.rotation);
+    private void Spawn()
+    {
+        Instantiate(prefab, transform.position, transform.rotation);
     }
 }
