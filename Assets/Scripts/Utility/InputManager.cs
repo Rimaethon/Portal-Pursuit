@@ -1,92 +1,109 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-
     // A global instance for scripts to reference
     public static InputManager instance;
 
+    [Header("Player Movement Input")] [Tooltip("The horizontal movmeent input of the player.")]
+    public float horizontalMoveAxis;
+
+    [Tooltip("The vertical movement input of the player.")]
+    public float verticalMoveAxis;
+
+    [Header("Look Around input")] [Tooltip("The horizontal look input")]
+    public float horizontalLookAxis;
+
+    [Tooltip("The vertical look input")] public float verticalLookAxis;
+
+    [Header("Player Fire Input")] [Tooltip("Whether or not the fire button was pressed this frame")]
+    public bool firePressed;
+
+    [Tooltip("Whether or not the fire button is being held down")]
+    public bool fireHeld;
+
+    [Header("Player Jump Input")] [Tooltip("Whether or not the jump button was pressed this fame")]
+    public bool jumpPressed;
+
+    [Tooltip("Whether or not the jump button is being held down")]
+    public bool jumpHeld;
+
+    [Header("Player Interact Input")] [Tooltip("Whether or not the e button was pressed this frame")]
+    public bool ePressed;
+
+    [Tooltip("Whether or not the e button is being held down")]
+    public bool eHeld;
+
+    [Header("Pause Input")] [Tooltip("Whether or not the pause button was pressed this frame")]
+    public bool pausePressed;
+
+    [Header("Cycle weapon input")] [Tooltip("The input from the axis that cycles weapons")]
+    public float cycleWeaponInput;
+
+    [Header("Next weapon input")] [Tooltip("Whether or not the next weapon button was pressed this frame")]
+    public bool nextWeaponPressed;
+
+    [Header("Previous weapon input")] [Tooltip("Whether or not the previous weapon button was pressed this frame")]
+    public bool previousWeaponPressed;
+
     /// <summary>
-    /// Description:
-    /// Standard Unity Function called when the script is loaded
-    /// Input:
-    /// none
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Standard Unity Function called when the script is loaded
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     private void Awake()
     {
         // Set up the instance of this
         if (instance == null)
-        {
             instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
 
-    [Header("Player Movement Input")]
-    [Tooltip("The horizontal movmeent input of the player.")]
-    public float horizontalMoveAxis;
-    [Tooltip("The vertical movement input of the player.")]
-    public float verticalMoveAxis;
-
     /// <summary>
-    /// Description:
-    /// Reads and stores the movement input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the movement input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the movement input</param>
     public void ReadMovementInput(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = context.ReadValue<Vector2>();
+        var inputVector = context.ReadValue<Vector2>();
         horizontalMoveAxis = inputVector.x;
         verticalMoveAxis = inputVector.y;
     }
 
-    [Header("Look Around input")]
-    [Tooltip("The horizontal look input")]
-    public float horizontalLookAxis;
-    [Tooltip("The vertical look input")]
-    public float verticalLookAxis;
-
     /// <summary>
-    /// Description:
-    /// Reads and stores the look input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the look input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the look input</param>
     public void ReadLookInput(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = context.ReadValue<Vector2>();
+        var inputVector = context.ReadValue<Vector2>();
         horizontalLookAxis = inputVector.x;
         verticalLookAxis = inputVector.y;
     }
 
-    [Header("Player Fire Input")]
-    [Tooltip("Whether or not the fire button was pressed this frame")]
-    public bool firePressed;
-    [Tooltip("Whether or not the fire button is being held down")]
-    public bool fireHeld;
-
     /// <summary>
-    /// Description:
-    /// Reads and stores the fire input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the fire input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the fire input</param>
     public void ReadFireInput(InputAction.CallbackContext context)
@@ -97,12 +114,12 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Description
-    /// Coroutine that resets the fire pressed variable after one frame
-    /// Input: 
-    /// none
-    /// Return: 
-    /// IEnumerator
+    ///     Description
+    ///     Coroutine that resets the fire pressed variable after one frame
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     IEnumerator
     /// </summary>
     /// <returns>IEnumerator: Allows this to function as a coroutine</returns>
     private IEnumerator ResetFireStart()
@@ -111,19 +128,13 @@ public class InputManager : MonoBehaviour
         firePressed = false;
     }
 
-    [Header("Player Jump Input")]
-    [Tooltip("Whether or not the jump button was pressed this fame")]
-    public bool jumpPressed;
-    [Tooltip("Whether or not the jump button is being held down")]
-    public bool jumpHeld;
-
     /// <summary>
-    /// Description:
-    /// Reads and stores the jump input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the jump input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the jump input</param>
     public void ReadJumpInput(InputAction.CallbackContext context)
@@ -133,12 +144,6 @@ public class InputManager : MonoBehaviour
         StartCoroutine("ResetJumpStart");
     }
 
-    [Header("Player Interact Input")]
-    [Tooltip("Whether or not the e button was pressed this frame")]
-    public bool ePressed;
-    [Tooltip("Whether or not the e button is being held down")]
-    public bool eHeld;
-
     public void ReadInteractInput(InputAction.CallbackContext context)
     {
         ePressed = !context.canceled;
@@ -146,12 +151,12 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Description
-    /// Coroutine that resets the jump pressed variable after one frame
-    /// Input: 
-    /// none
-    /// Return: 
-    /// IEnumerator
+    ///     Description
+    ///     Coroutine that resets the jump pressed variable after one frame
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     IEnumerator
     /// </summary>
     /// <returns>IEnumerator: Allows this to function as a coroutine</returns>
     private IEnumerator ResetJumpStart()
@@ -165,17 +170,14 @@ public class InputManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         ePressed = false;
     }
-    [Header("Pause Input")]
-    [Tooltip("Whether or not the pause button was pressed this frame")]
-    public bool pausePressed;
 
     /// <summary>
-    /// Description:
-    /// Reads and stores the pause input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the pause input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the pause input</param>
     public void ReadPauseInput(InputAction.CallbackContext context)
@@ -185,12 +187,12 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Description
-    /// Coroutine that resets the paused pressed variable after one frame
-    /// Input: 
-    /// none
-    /// Return: 
-    /// IEnumerator
+    ///     Description
+    ///     Coroutine that resets the paused pressed variable after one frame
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     IEnumerator
     /// </summary>
     /// <returns>IEnumerator: Allows this to function as a coroutine</returns>
     private IEnumerator ResetPausePressed()
@@ -199,43 +201,31 @@ public class InputManager : MonoBehaviour
         pausePressed = false;
     }
 
-    [Header("Cycle weapon input")]
-    [Tooltip("The input from the axis that cycles weapons")]
-    public float cycleWeaponInput;
-
     /// <summary>
-    /// Description:
-    /// Reads and stores the cycle weapon input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the cycle weapon input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the cycle weapon input</param>
     public void ReadCycleWeaponInput(InputAction.CallbackContext context)
     {
-        Vector2 mouseScrollInput = context.ReadValue<Vector2>();
+        var mouseScrollInput = context.ReadValue<Vector2>();
         if (mouseScrollInput.y == 0)
-        {
             cycleWeaponInput = 0;
-        }
         else
-        {
             cycleWeaponInput = Mathf.Sign(mouseScrollInput.y);
-        }
     }
 
-    [Header("Next weapon input")]
-    [Tooltip("Whether or not the next weapon button was pressed this frame")]
-    public bool nextWeaponPressed;
-
     /// <summary>
-    /// Description:
-    /// Reads and stores the next weapon input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the next weapon input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the next weapon input</param>
     public void ReadNextWeaponInput(InputAction.CallbackContext context)
@@ -245,12 +235,12 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Description
-    /// Coroutine that resets the next weapon pressed variable after one frame
-    /// Input: 
-    /// none
-    /// Return: 
-    /// IEnumerator
+    ///     Description
+    ///     Coroutine that resets the next weapon pressed variable after one frame
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     IEnumerator
     /// </summary>
     /// <returns>IEnumerator: Allows this to function as a coroutine</returns>
     private IEnumerator ResetNextWeaponPressedStart()
@@ -259,17 +249,13 @@ public class InputManager : MonoBehaviour
         nextWeaponPressed = false;
     }
 
-    [Header("Previous weapon input")]
-    [Tooltip("Whether or not the previous weapon button was pressed this frame")]
-    public bool previousWeaponPressed;
-
     /// <summary>
-    /// Description:
-    /// Reads and stores the previous weapon input
-    /// Input: 
-    /// CallbackContext callbackContext
-    /// Return:
-    /// void (no return)
+    ///     Description:
+    ///     Reads and stores the previous weapon input
+    ///     Input:
+    ///     CallbackContext callbackContext
+    ///     Return:
+    ///     void (no return)
     /// </summary>
     /// <param name="callbackContext">The context of the previous weapon input</param>
     public void ReadPreviousWeaponInput(InputAction.CallbackContext context)
@@ -279,12 +265,12 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Description
-    /// Coroutine that resets the previous weapon pressed variable after one frame
-    /// Input: 
-    /// none
-    /// Return: 
-    /// IEnumerator
+    ///     Description
+    ///     Coroutine that resets the previous weapon pressed variable after one frame
+    ///     Input:
+    ///     none
+    ///     Return:
+    ///     IEnumerator
     /// </summary>
     /// <returns>IEnumerator: Allows this to function as a coroutine</returns>
     private IEnumerator ResetPreviousWeaponPressedStart()
