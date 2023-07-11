@@ -1,51 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CloudTest : MonoBehaviour {
+public class CloudTest : MonoBehaviour
+{
     public int numViewDirections = 100;
     public int numClouds = 10;
     public int cloudSpawnSeed;
     public bool randomizeCloudSeed;
 
     public float spawnRadius = 10;
-    [Range (0, 1)]
-    public float startHeight;
+
+    [Range(0, 1)] public float startHeight;
+
     public GameObject cloudPrefab;
     public GameObject cloudCorePrefab;
 
-    void Start () {
-        
-        float goldenRatio = (1 + Mathf.Sqrt (5)) / 2;
-        float angleIncrement = Mathf.PI * 2 * goldenRatio;
+    private void Start()
+    {
+        var goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
+        var angleIncrement = Mathf.PI * 2 * goldenRatio;
 
-        for (int i = 0; i < numViewDirections; i++) {
-            float t = (float) i / numViewDirections;
-            float inclination = Mathf.Acos (1 - (1 - startHeight) * t);
-            float azimuth = angleIncrement * i;
+        for (var i = 0; i < numViewDirections; i++)
+        {
+            var t = (float)i / numViewDirections;
+            var inclination = Mathf.Acos(1 - (1 - startHeight) * t);
+            var azimuth = angleIncrement * i;
 
-            float x = Mathf.Sin (inclination) * Mathf.Sin (azimuth);
-            float y = Mathf.Cos (inclination);
-            float z = Mathf.Sin (inclination) * Mathf.Cos (azimuth);
+            var x = Mathf.Sin(inclination) * Mathf.Sin(azimuth);
+            var y = Mathf.Cos(inclination);
+            var z = Mathf.Sin(inclination) * Mathf.Cos(azimuth);
 
-            var g = Instantiate (cloudPrefab, transform.position + new Vector3 (x, y, z) * spawnRadius, Quaternion.identity, transform);
+            var g = Instantiate(cloudPrefab, transform.position + new Vector3(x, y, z) * spawnRadius,
+                Quaternion.identity, transform);
         }
 
-        if (randomizeCloudSeed) {
-            cloudSpawnSeed = Random.Range (-10000, 10000);
-        }
-        var prng = new System.Random (cloudSpawnSeed);
+        if (randomizeCloudSeed) cloudSpawnSeed = Random.Range(-10000, 10000);
+        var prng = new System.Random(cloudSpawnSeed);
 
-        for (int i = 0; i < numClouds; i++) {
-            float t = (float) prng.NextDouble ();
-            float inclination = Mathf.Acos (1 - (1 - startHeight) * t);
-            float azimuth = angleIncrement * i;
+        for (var i = 0; i < numClouds; i++)
+        {
+            var t = (float)prng.NextDouble();
+            var inclination = Mathf.Acos(1 - (1 - startHeight) * t);
+            var azimuth = angleIncrement * i;
 
-            float x = Mathf.Sin (inclination) * Mathf.Sin (azimuth);
-            float y = Mathf.Cos (inclination);
-            float z = Mathf.Sin (inclination) * Mathf.Cos (azimuth);
+            var x = Mathf.Sin(inclination) * Mathf.Sin(azimuth);
+            var y = Mathf.Cos(inclination);
+            var z = Mathf.Sin(inclination) * Mathf.Cos(azimuth);
 
-            var g = Instantiate (cloudCorePrefab, transform.position + new Vector3 (x, y, z) * spawnRadius, Quaternion.identity, transform);
+            var g = Instantiate(cloudCorePrefab, transform.position + new Vector3(x, y, z) * spawnRadius,
+                Quaternion.identity, transform);
         }
     }
 }
