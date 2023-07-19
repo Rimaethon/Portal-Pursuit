@@ -65,6 +65,9 @@ public class ThirdPersonCamera : MonoBehaviour
     // used to stop the camera before it hits an object
     private readonly float additionalIdleDistance = 0.5f;
 
+    // Wait this many frames before starting to process the camera rotation
+    private readonly int waitForFrames = 1;
+
     // The actual maximum distance away the camera can be from the player, used in raycasting
     private float appliedMaximumDistanceAway;
     private int framesWaited;
@@ -79,9 +82,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
     // the rotation reference rotated by this script to get the camera functionality desired
     private Transform rotationReference;
-
-    // Wait this many frames before starting to process the camera rotation
-    private readonly int waitForFrames = 1;
 
     /// <summary>
     ///     Description:

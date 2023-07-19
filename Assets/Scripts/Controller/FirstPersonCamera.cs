@@ -21,6 +21,8 @@ public class FirstPersonCamera : MonoBehaviour
     [Tooltip("The minimum X rotation to rotate to in degrees")] [Range(-10, -85)]
     public float minimumXRotation = -85f;
 
+    private readonly int waitForFrames = 3;
+
     private int framesWaited;
     private Portal portal;
     private RadioInteractor radio;
@@ -28,8 +30,6 @@ public class FirstPersonCamera : MonoBehaviour
     [Header("Needed References")]
     // the rotation reference rotated by this script to get the camera functionality desired
     private Transform rotationReference;
-
-    private readonly int waitForFrames = 3;
     // Start is called before the first frame update
 
 
