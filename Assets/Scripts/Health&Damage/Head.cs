@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controller;
+using UnityEngine;
 
 /// <summary>
 ///     This class handles behavior for jumping on top of something with a head

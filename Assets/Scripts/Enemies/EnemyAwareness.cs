@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controller;
+using UnityEngine;
 
 /// <summary>
 ///     Class which represents the capability of an enemy to see and hear a target

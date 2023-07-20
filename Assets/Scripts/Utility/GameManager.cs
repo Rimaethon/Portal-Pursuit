@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controller;
+using UnityEngine;
 
 /// <summary>
 ///     Class which manages the game

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controller;
+using UnityEngine;
 
 /// <summary>
 ///     Controls the bounce force of a jump pad that activates when the player's feet hit it

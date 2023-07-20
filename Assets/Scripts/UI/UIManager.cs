@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Utility;
 
 /// <summary>
 ///     A class which manages pages of UI elements
