@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Controller;
+using UnityEngine;
+using Utility;
 
 /// <summary>
 ///     This class handles moving the player's representation which is detached from the movement controls
