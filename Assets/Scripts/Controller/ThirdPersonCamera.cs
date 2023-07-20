@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utility;
 
 /// <summary>
 ///     This class handles the movement and orientation of the third person camera
