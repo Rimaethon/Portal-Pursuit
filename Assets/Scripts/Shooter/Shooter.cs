@@ -67,18 +67,18 @@ public class Shooter : MonoBehaviour
         {
             if (guns[equippedGunIndex].fireType == Gun.FireType.semiAutomatic)
             {
-                if (inputManager.firePressed) FireEquippedGun();
+                if (inputManager.FirePressed) FireEquippedGun();
             }
             else if (guns[equippedGunIndex].fireType == Gun.FireType.automatic)
             {
-                if (inputManager.firePressed || inputManager.fireHeld) FireEquippedGun();
+                if (inputManager.FirePressed || inputManager.FireHeld) FireEquippedGun();
             }
 
-            if (inputManager.cycleWeaponInput != 0) CycleEquippedGun();
+            if (inputManager.CycleWeaponInput != 0) CycleEquippedGun();
 
-            if (inputManager.nextWeaponPressed) GoToNextWeapon();
+            if (inputManager.NextWeaponPressed) GoToNextWeapon();
 
-            if (inputManager.previousWeaponPressed) GoToPreviousWeapon();
+            if (inputManager.PreviousWeaponPressed) GoToPreviousWeapon();
         }
     }
 
@@ -133,7 +133,7 @@ public class Shooter : MonoBehaviour
     /// </summary>
     private void CycleEquippedGun()
     {
-        var cycleInput = inputManager.cycleWeaponInput;
+        var cycleInput = inputManager.CycleWeaponInput;
         var availableGuns = guns.Where(item => item.available).ToList();
         var maximumAvailableGunIndex = availableGuns.Count - 1;
         var equippedAvailableGunIndex = availableGuns.IndexOf(guns[equippedGunIndex]);
