@@ -8,21 +8,106 @@ namespace Utility
     {
         public static InputManager instance;
 
-            private float horizontalMoveAxis;
-            private float verticalMoveAxis;
-            private float horizontalLookAxis;
-            private float verticalLookAxis;
-            private bool firePressed;
-            private bool fireHeld;
-            private bool jumpPressed;
-            private bool jumpHeld;
-            private bool ePressed;
-            private bool eHeld;
-            private bool pausePressed;
-            private float cycleWeaponInput;
-            private bool nextWeaponPressed;
-            private bool previousWeaponPressed;
-            
+        private float horizontalMoveAxis;
+        public float HorizontalMoveAxis
+        {
+            get { return horizontalMoveAxis; }
+            private set { horizontalMoveAxis = value; }
+        }
+
+        private float verticalMoveAxis;
+        public float VerticalMoveAxis
+        {
+            get { return verticalMoveAxis; }
+            private set { verticalMoveAxis = value; }
+        }
+
+        private float horizontalLookAxis;
+        public float HorizontalLookAxis
+        {
+            get { return horizontalLookAxis; }
+            private set { horizontalLookAxis = value; }
+        }
+
+        private float verticalLookAxis;
+        public float VerticalLookAxis
+        {
+            get { return verticalLookAxis; }
+            private set { verticalLookAxis = value; }
+        }
+
+        private bool firePressed;
+        public bool FirePressed
+        {
+            get { return firePressed; }
+            private set { firePressed = value; }
+        }
+
+        private bool fireHeld;
+        public bool FireHeld
+        {
+            get { return fireHeld; }
+            private set { fireHeld = value; }
+        }
+
+        private bool jumpPressed;
+        public bool JumpPressed
+        {
+            get { return jumpPressed; }
+            private set { jumpPressed = value; }
+        }
+
+        private bool jumpHeld;
+        public bool JumpHeld
+        {
+            get { return jumpHeld; }
+            private set { jumpHeld = value; }
+        }
+
+        private bool ePressed;
+        public bool EPressed
+        {
+            get { return ePressed; }
+            private set { ePressed = value; }
+        }
+
+        private bool eHeld;
+        public bool EHeld
+        {
+            get { return eHeld; }
+            private set { eHeld = value; }
+        }
+
+        private bool pausePressed;
+        public bool PausePressed
+        {
+            get { return pausePressed; }
+            private set { pausePressed = value; }
+        }
+
+        private float cycleWeaponInput;
+        public float CycleWeaponInput
+        {
+            get { return cycleWeaponInput; }
+            private set { cycleWeaponInput = value; }
+        }
+
+        private bool nextWeaponPressed;
+        public bool NextWeaponPressed
+        {
+            get { return nextWeaponPressed; }
+            private set { nextWeaponPressed = value; }
+        }
+
+        private bool previousWeaponPressed;
+        public bool PreviousWeaponPressed
+        {
+            get { return previousWeaponPressed; }
+            private set { previousWeaponPressed = value; }
+        }
+
+
+
 
         private void Awake()
         {
