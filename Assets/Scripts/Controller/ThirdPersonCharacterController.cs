@@ -95,8 +95,8 @@ namespace Controller
         private void LateUpdate()
         {
             if (Time.timeScale == 0) return;
-            CentralizedControl(inputManager.horizontalMoveAxis, inputManager.verticalMoveAxis, inputManager.jumpPressed,
-                inputManager.ePressed);
+            CentralizedControl(inputManager.HorizontalMoveAxis, inputManager.VerticalMoveAxis, inputManager.JumpPressed,
+                inputManager.EPressed);
         }
 
         private void InitialSetup()
@@ -224,7 +224,7 @@ namespace Controller
         {
             bounced = true;
             playerState = PlayerState.Jumping;
-            if (inputManager.jumpHeld)
+            if (inputManager.JumpHeld)
                 moveDirection.y = jumpStrength * bounceJumpButtonHeldMultiplyer;
             else
                 moveDirection.y = jumpStrength * bounceForceMultiplier;
@@ -240,7 +240,6 @@ namespace Controller
             transform.position = pos;
             var eulerRot = rot.eulerAngles;
             var delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
-            yaw += delta;
             smoothYaw += delta;
             transform.eulerAngles = Vector3.up * smoothYaw;
             velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(velocity));
