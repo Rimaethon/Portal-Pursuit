@@ -46,7 +46,7 @@ public class FirstPersonCamera : MonoBehaviour
         // Do nothing if paused
         if (Time.timeScale == 0) return;
 
-        FpCameraInput(inputManager.horizontalLookAxis, inputManager.verticalLookAxis);
+        FpCameraInput(inputManager.HorizontalLookAxis, inputManager.VerticalLookAxis);
     }
 
 
