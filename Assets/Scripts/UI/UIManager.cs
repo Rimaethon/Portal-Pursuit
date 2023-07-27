@@ -257,7 +257,7 @@ public class UIManager : MonoBehaviour
     private void CheckPauseInput()
     {
         if (inputManager != null)
-            if (inputManager.pausePressed)
+            if (inputManager.PausePressed)
                 TogglePause();
     }
 
