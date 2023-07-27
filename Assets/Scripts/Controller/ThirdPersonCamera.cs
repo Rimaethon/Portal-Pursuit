@@ -119,7 +119,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
         FindObjectOfType<CameraRotationHelper>().FollowPlayerTransformLikeAChild();
         FaceCharacter();
-        CentralizedControl(inputManager.horizontalLookAxis, inputManager.verticalLookAxis);
+        CentralizedControl(inputManager.HorizontalLookAxis, inputManager.VerticalLookAxis);
         DetermineCameraPositionAdjustments();
     }
 
