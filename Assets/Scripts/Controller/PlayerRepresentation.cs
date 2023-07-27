@@ -42,7 +42,7 @@ public class PlayerRepresentation : MonoBehaviour
     private void Update()
     {
         FollowTransformLikeParent();
-        CentralizedControl(inputManager.horizontalMoveAxis, inputManager.verticalMoveAxis);
+        CentralizedControl(inputManager.HorizontalMoveAxis, inputManager.VerticalMoveAxis);
         ApplyAnimation();
     }
 
