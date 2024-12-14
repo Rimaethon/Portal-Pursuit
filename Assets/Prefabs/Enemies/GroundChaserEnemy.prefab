@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.209901, y: 0.52274007, z: 16.946903}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4828512991064168051}
   - {fileID: 9152453163198267789}
@@ -66,9 +67,10 @@ MonoBehaviour:
   teamId: 1
   damageAmount: 1
   destroyAfterDamage: 0
-  dealDamageOnTriggerEnter: 1
-  dealDamageOnTriggerStay: 0
+  dealDamageOnCollisionStay: 0
   dealDamageOnCollision: 0
+  dealDamageOnTriggerStay: 0
+  dealDamageOnTrigger: 0
 --- !u!114 &9152453161719432017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,16 +84,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamId: 1
-  defaultHealth: 1
-  maximumHealth: 1
-  currentHealth: 1
   invincibilityTime: 3
-  isAlwaysInvincible: 0
-  useLives: 0
   currentLives: 3
   maximumLives: 5
   respawnWaitTime: 3
-  isInvincible: 0
   deathEffect: {fileID: 6296194425104371975, guid: e4d29f2ec163eac4cbaa0d8586a8abc0, type: 3}
   hitEffect: {fileID: 1338576432689925465, guid: 2d26d9deb43a9444abf32020e1a0ebe9, type: 3}
 --- !u!114 &9152453161719432016
@@ -173,8 +169,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9152453163198267789}
-  - component: {fileID: 9152453163198267787}
-  - component: {fileID: 9152453163198267786}
   m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
@@ -192,37 +186,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.44, z: 0}
   m_LocalScale: {x: 2.25, y: 0.75, z: 2.25}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9152453161719432028}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9152453163198267787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4806332269250210738, guid: 334e3cce2f875ad44a3618315e1d527a, type: 3}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9152453163198267788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141ea70d22333e24a807d12db6a244eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  associatedHealth: {fileID: 9152453161719432017}
-  damage: 1
---- !u!65 &9152453163198267786
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4806332269250210739, guid: 334e3cce2f875ad44a3618315e1d527a, type: 3}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9152453163198267788}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &466375677145562473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,6 +198,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9152453161719432028}
     m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -243,6 +215,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -253,14 +229,6 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e4e0c7fd8edfb93409b47b56ec043067, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

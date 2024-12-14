@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 1484270455573039241}
   - component: {fileID: 5162736467725923440}
   - component: {fileID: 5486136852399725414}
-  - component: {fileID: 6569325437356921973}
   - component: {fileID: 2777671703141329570}
-  - component: {fileID: 6126911349311000326}
   - component: {fileID: 7060562399004763259}
   - component: {fileID: 2486135689061657441}
   m_Layer: 2
@@ -33,7 +31,8 @@ Transform:
   m_GameObject: {fileID: 6888659676935749804}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -109,20 +109,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6569325437356921973
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6888659676935749804}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 176294100418653254, guid: e9cf56ef5a73df8438625f94a2d122b1, type: 3}
 --- !u!65 &2777671703141329570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,36 +117,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6888659676935749804}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 393.21567, y: 110.66771, z: 399.75934}
-  m_Center: {x: -1.0745645, y: 92.03446, z: 2.234441}
---- !u!114 &6126911349311000326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6888659676935749804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd127b36b1c82f4da6b98d59c6f16f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teamId: -1
-  defaultHealth: 1
-  maximumHealth: 1
-  currentHealth: 1
-  invincibilityTime: 3
-  isAlwaysInvincible: 1
-  useLives: 0
-  currentLives: 3
-  maximumLives: 5
-  respawnWaitTime: 3
-  isInvincible: 0
-  deathEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
+  m_Size: {x: 2, y: 0.6, z: 2}
+  m_Center: {x: 0, y: 0.06, z: 0}
 --- !u!114 &7060562399004763259
 MonoBehaviour:
   m_ObjectHideFlags: 0

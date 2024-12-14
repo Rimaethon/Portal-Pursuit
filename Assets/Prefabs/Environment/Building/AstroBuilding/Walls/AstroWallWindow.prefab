@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121578181442619746}
-  - component: {fileID: 5872777337224761556}
   m_Layer: 0
   m_Name: AstroWallWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &121578181442619746
 Transform:
@@ -27,36 +26,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 90.017166, y: 0.91859424, z: 9.742298}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4551593687878069260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5872777337224761556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012237555077282695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd127b36b1c82f4da6b98d59c6f16f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teamId: -1
-  defaultHealth: 1
-  maximumHealth: 1
-  currentHealth: 1
-  invincibilityTime: 3
-  isAlwaysInvincible: 1
-  useLives: 0
-  currentLives: 3
-  maximumLives: 5
-  respawnWaitTime: 3
-  isInvincible: 0
-  deathEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
 --- !u!1001 &8813604503643768598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,6 +39,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 121578181442619746}
     m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -75,6 +54,10 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -89,14 +72,6 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -108,13 +83,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e22aa8ce5c3c81b4287d0993883a8d36, type: 2}
     - target: {fileID: -927199367670048503, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
       propertyPath: m_Name
       value: Wall_Window
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e836f441695f84cb1176a5a4289d1b, type: 3}
