@@ -19,7 +19,7 @@ public class GroundEnemy : Enemy
     {
         if (enemyRigidbody != null)
         {
-            enemyRigidbody.velocity = Vector3.zero;
+            enemyRigidbody.linearVelocity = Vector3.zero;
             enemyRigidbody.angularVelocity = Vector3.zero;
         }
 

@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
             var desiredMovement = CalculateDesiredMovement();
             var desiredRotation = CalculateDesiredRotation();
 
-            enemyRigidbody.velocity = Vector3.zero;
+            enemyRigidbody.linearVelocity = Vector3.zero;
             enemyRigidbody.angularVelocity = Vector3.zero;
 
             enemyRigidbody.MovePosition(desiredMovement);
@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour
             actionState = ActionStates.PREPARING;
         else
             actionState = ActionStates.IDLE;
-        if (canMove && enemyRigidbody != null && enemyRigidbody.velocity.magnitude > 0.1f)
+        if (canMove && enemyRigidbody != null && enemyRigidbody.linearVelocity.magnitude > 0.1f)
             movementState = MovementStates.MOVING;
         else
             movementState = MovementStates.IDLE;

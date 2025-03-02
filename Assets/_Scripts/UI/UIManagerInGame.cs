@@ -1,4 +1,5 @@
-﻿using Managers;
+﻿using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class UIManagerInGame : MonoBehaviour
         resumeButton.onClick.AddListener(() =>
         {
             pausePage.SetActive( false );
+            ChangeToMenuModeCursor(CursorState.IN_GAME);
             Time.timeScale = 1;
         });
         EventManager.Subscribe<PauseEventArgs>(HandlePausePage);
@@ -29,10 +31,25 @@ public class UIManagerInGame : MonoBehaviour
         EventManager.UnSubscribe<PlayerLoseEventArgs>(HandleLosePage);
     }
 
+    private void Awake()
+    {
+        ChangeToMenuModeCursor(CursorState.IN_GAME);
+    }
+
     private void HandlePausePage(PauseEventArgs obj)
     {
         pausePage.SetActive( true );
+        ChangeToMenuModeCursor(CursorState.MENU);
         Time.timeScale = 0;
+    }
+
+    private void ChangeToMenuModeCursor(CursorState cursorState)
+    {
+        CursorStateChangeEventArgs cursorStateChangeEventArgs = new CursorStateChangeEventArgs
+        {
+            CursorState =cursorState
+        };
+        EventManager.RaiseEvent(cursorStateChangeEventArgs);
     }
 
     private void HandleWinPage(PlayerWinEventArgs obj)

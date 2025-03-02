@@ -17,10 +17,14 @@ namespace Utility
 
         public void ReadMovementInput(InputAction.CallbackContext context)
         {
+            if(Time.timeScale==0)
+                return;
             moveInput = context.ReadValue<Vector2>();
         }
         public void ReadLookInput(InputAction.CallbackContext context)
         {
+            if(Time.timeScale==0)
+                return;
             lookInput = context.ReadValue<Vector2>();
         }
 

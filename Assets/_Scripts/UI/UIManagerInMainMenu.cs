@@ -2,17 +2,38 @@
 using _Scripts.UI.UI_Page_View;
 using Managers;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Scripts.UI
 {
 	public class UIManagerInMainMenu: MonoBehaviour
 	{
+		[SerializeField]
+		private Button background;
 		private UIPage currentPage;
 
 		private void OnEnable()
 		{
+			background.onClick.AddListener(() =>
+			{
+				CursorStateChangeEventArgs cursorStateChangeEventArgs = new CursorStateChangeEventArgs
+				{
+					CursorState = CursorState.IN_GAME
+				};
+				EventManager.RaiseEvent(cursorStateChangeEventArgs);
+			});
 			EventManager.Subscribe<UICloseCurrentPageEventArgs>(CloseCurrentPage);
 			EventManager.Subscribe<UIOpenPageEventArgs>(OpenPage);
+			EventManager.Subscribe<PauseEventArgs>(ChangeToMenuModeCursor);
+		}
+
+		private void ChangeToMenuModeCursor(PauseEventArgs obj)
+		{
+			CursorStateChangeEventArgs cursorStateChangeEventArgs = new CursorStateChangeEventArgs
+			{
+				CursorState = CursorState.MENU
+			};
+			EventManager.RaiseEvent(cursorStateChangeEventArgs);
 		}
 
 		private void OnDisable()
@@ -21,7 +42,7 @@ namespace _Scripts.UI
 			EventManager.UnSubscribe<UIOpenPageEventArgs>(OpenPage);
 		}
 
-		private void Awake()
+		private void ChangeToMenuModeCursor()
 		{
 			CursorStateChangeEventArgs cursorStateChangeEventArgs = new CursorStateChangeEventArgs
 			{
